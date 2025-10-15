@@ -14,7 +14,7 @@
       --radius:16px; --shadow:0 6px 18px rgba(15,23,42,.08); --max:1100px;
       --focus: 0 0 0 3px rgba(79,70,229,.35), 0 0 0 6px rgba(124,58,237,.25);
       /* Avatar size */
-      --avatar: 208px; /* slightly larger square for photos */
+      --avatar: 208px; /* slightly larger square */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -81,10 +81,26 @@
     .backtop{position:fixed;right:16px;bottom:16px;z-index:100;opacity:0;pointer-events:none;transform:translateY(8px);transition:all .2s}
     .backtop.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 
-    /* Small circular profile photos */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .photo-frame{width:var(--avatar); height:var(--avatar); border-radius:12px; overflow:hidden; border:2px solid var(--line); background:#fff; box-shadow:var(--shadow)}
-    .photo-frame img{width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:1/1}
+    /* Square profile photos */
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+      clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+    .photo-frame{
+      width:var(--avatar); height:var(--avatar);
+      border-radius:12px; /* square with soft corners */
+      overflow:hidden;
+      border:2px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .photo-frame img{
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center center;
+      display:block;
+      aspect-ratio:1/1;
+    }
 
     /* NEW: identity row puts avatar beside the name */
     .identity{display:flex;align-items:center;gap:18px;margin-top:12px}
@@ -93,7 +109,8 @@
     @media (max-width:640px){
       .identity{flex-direction:row;align-items:center}
     }
-      /* Decorative bottom texture (professional & subtle) */
+
+    /* Decorative bottom texture (subtle & professional) */
     .texture-band{
       height: 220px;
       background:
@@ -134,9 +151,9 @@
     <section id="home" class="hero" aria-labelledby="home-title">
       <div class="container">
         <span class="tag">Portfolio mini-site</span>
-        <h1 id="home-title">Two paths. One vision.</h1>
+        <h1 id="home-title">Profiles for Industry</h1>
         <p class="lead">
-          We design and plan for impact. This mini-site shows how our skills align with real roles:
+          This mini-site shows how our skills align with industry roles:
           <strong>Interactive Strategy</strong> and <strong>UX Design</strong>.
         </p>
         <div class="cta-row">
@@ -182,8 +199,6 @@
               <li>Minimum 2+ years relevant experience in strategy, design, and/or technology engagements.</li>
               <li>Demonstrable passion for user experience, digital design, and technology.</li>
               <li>Strong client collaboration and communication (written and verbal); comfortable presenting.</li>
-              <li>Analytical mindset, strong problem-solving, and self-motivation.</li>
-              <li>Ability to work both collaboratively and independently; appreciation for great digital design.</li>
             </ul>
 
             <div class="cta-row">
@@ -197,37 +212,45 @@
             </div>
           </article>
 
-          <!-- SAPTAK — UX Designer -->
+          <!-- SAPTAK — UX Designer (G Adventures) -->
           <article class="card" aria-labelledby="role-saptak">
             <div class="tag" aria-hidden="true">Saptak</div>
-            <h3 id="role-saptak" style="margin:10px 0 6px">UX Designer</h3>
+            <h3 id="role-saptak" style="margin:10px 0 6px">UX Designer — G Adventures</h3>
             <p class="muted" style="margin-top:8px">
-              Research-to-prototype role focused on <strong>flows, usability, and consistency</strong>. Balance user needs and business goals
-              while documenting rationale and iterating based on evidence.
+              Hands-on role focused on <strong>traveller journey</strong> from inspiration to booking. Turn insights into flows,
+              wireframes, and prototypes in a cross-functional Marketing & E-commerce team.
             </p>
 
-            <h4 style="margin:14px 0 6px">Focus areas</h4>
+            <h4 style="margin:14px 0 6px">About G Adventures</h4>
+            <p class="muted" style="margin-top:0">
+              The world’s largest small-group adventure travel company (30+ years), with a mission to change lives through travel and benefit local communities.
+            </p>
+
+            <h4 style="margin:12px 0 6px">What you’ll do</h4>
             <ul class="muted" style="margin:0 0 10px 18px">
-              <li>User interviews, task flows, wireframes, and interactive prototypes.</li>
-              <li>Usability testing, insight synthesis, and data-informed iterations.</li>
-              <li>Design tokens, components, accessibility patterns, and clean hand-off to engineering.</li>
+              <li>Design intuitive, user-friendly experiences that support the traveller journey.</li>
+              <li>Create user flows, wireframes, and prototypes; run usability reviews and benchmarking.</li>
+              <li>Ensure accessibility, SEO best practices, and performance considerations.</li>
+              <li>Collaborate with PMs, Designers, Developers, and Content; present rationale to stakeholders.</li>
+              <li>Maintain reusable assets in Figma and balance quick updates with larger redesigns.</li>
+              <li>Stay current on UX/UI trends and advocate for user-centered design.</li>
             </ul>
 
-            <h4 style="margin:10px 0 6px">What they’re looking for</h4>
+            <h4 style="margin:10px 0 6px">Desired skills</h4>
             <ul class="muted" style="margin:0 0 14px 18px">
-              <li>Portfolio demonstrating problem-solving, process clarity, and results.</li>
-              <li>Working knowledge of Jakob’s & Hick’s Law to reduce cognitive load.</li>
-              <li>Strong collaboration with PM/Engineering; communicates trade-offs early.</li>
+              <li>3+ years in UX/product design (e-commerce or content-rich sites ideal).</li>
+              <li>Proficient in Figma; strong UX principles and accessibility.</li>
+              <li>Experience translating insights into customer-centered solutions; strong communication.</li>
+              <li>Strong communication and presentation skills.</li>
             </ul>
 
             <div class="cta-row">
               <a class="btn primary"
-                href="#"
-                title="Add the LinkedIn URL here when available"
-                aria-label="LinkedIn job link coming soon">
-                Learn more on LinkedIn →
+                 href="https://www.linkedin.com/jobs/view/4293654556/"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Open LinkedIn job posting for UX Designer at G Adventures">
+                 Learn more on LinkedIn →
               </a>
-              <span class="muted" aria-hidden="true" style="align-self:center">(link coming soon)</span>
               <a class="btn" href="#saptak" aria-label="Go to Saptak’s profile to see alignment">See Saptak’s fit</a>
             </div>
           </article>
@@ -248,7 +271,7 @@
           </figure>
           <div class="text">
             <h2 id="andrea-title">Andrea Hilarraza — Purposeful digital strategies</h2>
-            <p class="lead">I bridge creativity and data to strengthen brand presence and engagement. Focus: authentic storytelling, clear KPIs, consistent execution.</p>
+            <p class="lead"> Focus: authentic storytelling, clear KPIs, consistent execution.</p>
           </div>
         </div>
 
@@ -277,14 +300,14 @@
             <p class="muted">
               Recently, at the restaurant <strong>Scotty Bons Caribbean Grill</strong>, I am the social media manager for Instagram Stories aligned with the brand’s Caribbean identity. I created all the visual content, graphics, and digital strategies. 
               For the brand and engagement, the audience.
-              Previously in Venezuela, I worked at <strong>MOAD C.A.</strong> collaborating with the creative and marketing team to develop visual materials for branding and social media. 
+              Previously in Venezuela, I worked at <strong>MOAD C.A.</strong>, collaborating with the creative and marketing team to develop visual materials for branding and social media. 
               This experience helped me to understand the industry design consistency, communication, and project coordination.  
             </p>
           </article>
           <article class="card">
             <h3>Why should I be hired?</h3>
             <p class="muted">
-              I bring a strong sense of responsibility, consistency, and patience to every project. The main thing is to understand how I do for start and make it in a good way in collaboration. 
+              I bring a strong sense of responsibility, consistency, and patience to every project. The main thing is to understand how I start and make it work in a good way in collaboration. 
               My approach focuses principally on clear communication, attention to detail, creative thinking, and problem solving, for the user experience and client objectives. 
             </p>
           </article>
@@ -294,7 +317,8 @@
         <div class="testimonial" aria-label="Testimonial from Saptak about Andrea">
           <div>
             <strong>Saptak on Andrea</strong>
-            <p class="quote">“Andrea connects strategy with execution. She keeps teams aligned on goals, timelines, and the story we want to tell.”</p>
+            <p class="quote">Saptak is a UX design prototype specialist, mixing with marketing. He has experience in identifying user needs and improving interface efficiency with strong analytical thinking, communication, and leadership and coordination skills. He has technical knowledge and clear communication. 
+              As a result of planning, organization, and creating efficiency to complete the tasks.</p>
           </div>
         </div>
 
@@ -313,8 +337,8 @@
         <!-- IDENTITY ROW: avatar beside the name -->
         <div class="identity" aria-labelledby="saptak-title">
           <figure class="photo-frame" aria-labelledby="saptak-photo-caption">
-            <img src="saptak-photo.jpg" alt="Portrait of Saptak Mukhopadhyay" />
-            <figcaption id="saptak-photo-caption" class="sr-only">Saptak — replace saptak-photo.jpg with your image.</figcaption>
+            <img src="saptak-photo.png" alt="Portrait of Saptak Mukhopadhyay" />
+            <figcaption id="saptak-photo-caption" class="sr-only">Saptak — replace saptak-photo.png with your image.</figcaption>
           </figure>
           <div class="text">
             <h2 id="saptak-title">Saptak Mukhopadhyay — Intuitive experiences</h2>
@@ -326,15 +350,15 @@
         <div class="grid Cols2" style="margin-top:18px">
           <article class="card">
             <h3>About me</h3>
-            <p class="muted">Front-end-aware UX designer focused on flows, prototypes, and usability. I work closely with stakeholders to clarify goals and remove friction.</p>
+            <p class="muted">I am Saptak Mukhopadhyay from India, my background is in UX design and marketing. 
+              I am specialised in ux design prototypes and integrated marketing. I have a three years undergraduate degree from Manipal University 
+              with a major in Graphic Design and digital media marketing.</p>
           </article>
           <article class="card">
             <h3>How does my background fit?</h3>
-            <ul class="muted" style="margin-left:18px">
-              <li>User research and flow simplification using Jakob’s & Hick’s Law.</li>
-              <li>Wireframes → clickable prototypes tested with users.</li>
-              <li>Foundations of design systems and accessibility patterns.</li>
-            </ul>
+            <p class="muted" style="margin-left:18px"> I have hands on experience in usability testing, persona development, and survey design. 
+              I seek to make meaningful contributions to company projects and see myself as a key player in its growth and success. Additionally, 
+              I have a strong sense of leadership, multitasking, and coordination that distinguish me from other candidates.</p>
           </article>
         </div>
 
@@ -342,11 +366,15 @@
         <div class="grid Cols2" style="margin-top:18px">
           <article class="card">
             <h3>Experience</h3>
-            <p class="muted">Worked across <strong>research, prototyping, and usability testing</strong> to translate requirements into clear user flows and interactive prototypes. Collaborated with PM and engineering to document decisions, iterate based on evidence, and hand off designs with component specs and accessibility notes.</p>
+            <p class="muted">I have hands on experience in usability testing, persona development, and survey design. 
+              I seek to make meaningful contributions for company projects and see myself as a key player in its growth and success. Additionally, 
+              I have a strong sense of leadership, multitasking, and coordination that distinguish me from other candidates.</p>
           </article>
           <article class="card">
             <h3>Why should I be hired?</h3>
-            <p class="muted">Reliable and methodical, with a focus on clarity and measurable outcomes. Comfortably presents rationale, surfaces trade-offs early, and iterates with user feedback. Aims to reduce cognitive load, improve task success, and align design choices with business goals.</p>
+            <p class="muted">I bring a proven track record supported by sample works and survey design, which allows me to contribute effectively 
+              to projects. Leadership, multitasking, and coordination skills enable me to manage responsibilities efficiently within a team. 
+              I am a highly motivated individual who is willing to contribute effectively for the betterment of the organisatio,n and that adds value.</p>
           </article>
         </div>
 
@@ -354,7 +382,9 @@
         <div class="testimonial" aria-label="Testimonial from Andrea about Saptak">
           <div>
             <strong>Andrea on Saptak</strong>
-            <p class="quote">“Saptak is reliable and methodical. He translates requirements into clean interfaces and communicates trade-offs early.”</p>
+            <p class="quote">Andrea is a talented and dedicated creative professional with a strong background in Arts and Graphic Design. She has multiple experiences ranging from branding to digital strategy and engagement which allows her to create visual solutions that are not only aesthetically pleasing but also strategically impactful.
+Her work is a combination of analytical thinking with design intuition, creating content that deeply matches with her audience. Andrea’s experience at Scotty Bons Caribbean Grill and MOAD C.A. reflects her ability to plan effectively, collaborate with stakeholders, and maintain high standards of consistency and reliability.
+Andrea’s passion for technology, storytelling, and visual communication makes her a valuable asset to any creative or digital team.</p>
           </div>
         </div>
 
@@ -369,8 +399,8 @@
     <!-- ABOUT -->
     <section id="about" aria-labelledby="about-title">
       <div class="container">
-        <h2 id="about-title">About this project</h2>
-        <p class="muted">This site shows how transferable skills evolve into professional expertise. Andrea focuses on interactive strategy and communication; Saptak focuses on UX research, prototyping, and usability.</p>
+        <h2 id="about-title">About</h2>
+        <p class="muted">This site shows how transferable skills evolve into professional expertise.</p>
       </div>
     </section>
 
@@ -385,16 +415,17 @@
           </div>
           <div class="card">
             <h3>Saptak</h3>
-            <p class="muted">LinkedIn: <a href="#" aria-label="Visit Saptak's LinkedIn">Visit</a></p>
+            <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/saptak-mukhopadhyay-90a08b219/" target="_blank" rel="noopener noreferrer" aria-label="Visit Saptak's LinkedIn">Saptak Mukhopadhyay</a></p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-    <section class="texture-band" aria-hidden="true"></section>
+  <!-- Subtle bottom texture -->
+  <section class="texture-band" aria-hidden="true"></section>
 
+  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <section>
       <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
@@ -452,3 +483,4 @@
   </script>
 </body>
 </html>
+
