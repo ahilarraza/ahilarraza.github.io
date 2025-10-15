@@ -14,7 +14,7 @@
       --radius:16px; --shadow:0 6px 18px rgba(15,23,42,.08); --max:1100px;
       --focus: 0 0 0 3px rgba(79,70,229,.35), 0 0 0 6px rgba(124,58,237,.25);
       /* Avatar size */
-      --avatar: 184px; /* larger square */ /* bigger circle */
+      --avatar: 184px; /* larger square */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -81,10 +81,26 @@
     .backtop{position:fixed;right:16px;bottom:16px;z-index:100;opacity:0;pointer-events:none;transform:translateY(8px);transition:all .2s}
     .backtop.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 
-    /* Small circular profile photos */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .photo-frame{width:var(--avatar); height:var(--avatar); border-radius:12px; overflow:hidden; border:2px solid var(--line); background:#fff; box-shadow:var(--shadow)}
-    .photo-frame img{width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:1/1}
+    /* Square profile photos */
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+      clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+    .photo-frame{
+      width:var(--avatar); height:var(--avatar);
+      border-radius:12px;             /* square with soft corners */
+      overflow:hidden;
+      border:2px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .photo-frame img{
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center center;
+      display:block;
+      aspect-ratio:1/1;
+    }
 
     /* NEW: identity row puts avatar beside the name */
     .identity{display:flex;align-items:center;gap:18px;margin-top:12px}
@@ -117,9 +133,9 @@
     <section id="home" class="hero" aria-labelledby="home-title">
       <div class="container">
         <span class="tag">Portfolio mini-site</span>
-        <h1 id="home-title">Two paths. One vision.</h1>
+        <h1 id="home-title">Profile Perspectives</h1>
         <p class="lead">
-          We design and plan for impact. This mini-site shows how our skills align with real roles:
+          This mini-site shows how our skills align with industry roles:
           <strong>Interactive Strategy</strong> and <strong>UX Design</strong>.
         </p>
         <div class="cta-row">
@@ -180,37 +196,44 @@
             </div>
           </article>
 
-          <!-- SAPTAK — UX Designer -->
+          <!-- SAPTAK — UX Designer (G Adventures) -->
           <article class="card" aria-labelledby="role-saptak">
             <div class="tag" aria-hidden="true">Saptak</div>
-            <h3 id="role-saptak" style="margin:10px 0 6px">UX Designer</h3>
+            <h3 id="role-saptak" style="margin:10px 0 6px">UX Designer — G Adventures</h3>
             <p class="muted" style="margin-top:8px">
-              Research-to-prototype role focused on <strong>flows, usability, and consistency</strong>. Balance user needs and business goals
-              while documenting rationale and iterating based on evidence.
+              Hands-on role focused on <strong>traveller journey</strong> from inspiration to booking. Turn insights into flows,
+              wireframes, and prototypes in a cross-functional Marketing & E-commerce team.
             </p>
 
-            <h4 style="margin:14px 0 6px">Focus areas</h4>
+            <h4 style="margin:14px 0 6px">About G Adventures</h4>
+            <p class="muted" style="margin-top:0">
+              The world’s largest small-group adventure travel company (30+ years), with a mission to change lives through travel and benefit local communities.
+            </p>
+
+            <h4 style="margin:12px 0 6px">What you’ll do</h4>
             <ul class="muted" style="margin:0 0 10px 18px">
-              <li>User interviews, task flows, wireframes, and interactive prototypes.</li>
-              <li>Usability testing, insight synthesis, and data-informed iterations.</li>
-              <li>Design tokens, components, accessibility patterns, and clean hand-off to engineering.</li>
+              <li>Design intuitive, user-friendly experiences that support the traveller journey.</li>
+              <li>Create user flows, wireframes, and prototypes; run usability reviews and benchmarking.</li>
+              <li>Ensure accessibility, SEO best practices, and performance considerations.</li>
+              <li>Collaborate with PMs, Designers, Developers, and Content; present rationale to stakeholders.</li>
+              <li>Maintain reusable assets in Figma and balance quick updates with larger redesigns.</li>
+              <li>Stay current on UX/UI trends and advocate for user-centered design.</li>
             </ul>
 
-            <h4 style="margin:10px 0 6px">What they’re looking for</h4>
+            <h4 style="margin:10px 0 6px">Desired skills</h4>
             <ul class="muted" style="margin:0 0 14px 18px">
-              <li>Portfolio demonstrating problem-solving, process clarity, and results.</li>
-              <li>Working knowledge of Jakob’s & Hick’s Law to reduce cognitive load.</li>
-              <li>Strong collaboration with PM/Engineering; communicates trade-offs early.</li>
+              <li>3+ years in UX/product design (e-commerce or content-rich sites ideal).</li>
+              <li>Proficient in Figma; strong UX principles and accessibility.</li>
+              <li>Experience translating insights into customer-centered solutions; strong communication.</li>
             </ul>
 
             <div class="cta-row">
               <a class="btn primary"
-                href="#"
-                title="Add the LinkedIn URL here when available"
-                aria-label="LinkedIn job link coming soon">
-                Learn more on LinkedIn →
+                 href="https://www.linkedin.com/jobs/view/4293654556/"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Open LinkedIn job posting for UX Designer at G Adventures">
+                 Learn more on LinkedIn →
               </a>
-              <span class="muted" aria-hidden="true" style="align-self:center">(link coming soon)</span>
               <a class="btn" href="#saptak" aria-label="Go to Saptak’s profile to see alignment">See Saptak’s fit</a>
             </div>
           </article>
@@ -297,7 +320,7 @@
         <div class="identity" aria-labelledby="saptak-title">
           <figure class="photo-frame" aria-labelledby="saptak-photo-caption">
             <img src="saptak-photo.png" alt="Portrait of Saptak Mukhopadhyay" />
-            <figcaption id="saptak-photo-caption" class="sr-only">Saptak — replace saptak-photo.jpg with your image.</figcaption>
+            <figcaption id="saptak-photo-caption" class="sr-only">Saptak — replace saptak-photo.png with your image.</figcaption>
           </figure>
           <div class="text">
             <h2 id="saptak-title">Saptak Mukhopadhyay — Intuitive experiences</h2>
@@ -372,7 +395,7 @@
           </div>
           <div class="card">
             <h3>Saptak</h3>
-            <p class="muted">LinkedIn: <a href="#" aria-label="Visit Saptak's LinkedIn">Visit</a></p>
+            <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/saptak-mukhopadhyay-90a08b219/" target="_blank" rel="noopener noreferrer" aria-label="Visit Saptak's LinkedIn">Saptak Mukhopadhyay</a></p>
           </div>
         </div>
       </div>
