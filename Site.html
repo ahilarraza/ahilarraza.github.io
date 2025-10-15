@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Andrea & Saptak</title>
+  <meta name="description" content="Mini-site showing how our skills align with Interactive Strategy and UX Design roles." />
+  <style>
+    :root{
+      /* Light palette + corporate accents */
+      --bg:#ffffff; --ink:#0f172a; --muted:#475569; --line:#e2e8f0;
+      --indigo:#4f46e5; --lav:#7c3aed; --soft:#f8fafc; --chip:#f1f5f9;
+      /* UI tokens */
+      --radius:16px; --shadow:0 6px 18px rgba(15,23,42,.08); --max:1100px;
+      --focus: 0 0 0 3px rgba(79,70,229,.35), 0 0 0 6px rgba(124,58,237,.25);
+      /* Avatar size */
+      --avatar: 120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{animation:none!important;transition:none!important}
+    }
+    body{
+      margin:0; color:var(--ink);
+      font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background:var(--bg);
+    }
+    a{color:var(--indigo);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;display:block}
+    /* Visible focus */
+    a:focus, button:focus{outline:none; box-shadow:var(--focus); border-radius:10px}
+
+    /* Layout */
+    .container{max-width:var(--max);margin-inline:auto;padding:0 20px}
+    section{padding:64px 0}
+    .hero{background:linear-gradient(180deg,#eef2ff 0%, #fff 60%, #f5f3ff 100%)}
+    h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:12px 0}
+    h2{font-size:clamp(22px,3.5vw,32px);margin:0 0 10px}
+    p.lead{font-size:18px;color:var(--muted);max-width:70ch}
+    .muted{color:var(--muted)}
+
+    /* Header */
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;background:#fff;border:2px solid var(--indigo);padding:.5rem .75rem;border-radius:10px;z-index:1000}
+    header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(160%) blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+    .brand{display:flex;align-items:center;gap:.5rem;font-weight:700}
+    .dot{width:8px;height:24px;background:var(--indigo);border-radius:4px}
+    .links{display:flex;gap:.5rem;flex-wrap:wrap}
+    .link{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .85rem;border-radius:.75rem;border:1px solid transparent}
+    .link[aria-current="page"], .link.is-active, .link:hover{background:var(--chip);border-color:var(--line)}
+    .link svg{width:16px;height:16px;opacity:.7}
+
+    /* Components */
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1rem;border-radius:12px;border:1px solid var(--line);font-weight:600;background:#fff}
+    .btn.primary{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+    .btn.ghost:hover{background:#f8fafc}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+
+    .tag{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:var(--chip);color:var(--muted);font-size:12px}
+
+    .card{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:20px;box-shadow:var(--shadow)}
+    .grid{display:grid;gap:20px}
+    .Cols2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:840px){.Cols2{grid-template-columns:1fr}}
+
+    .testimonial{display:flex;gap:14px;align-items:flex-start;margin-top:18px;background:linear-gradient(180deg,#eef2ff,#faf5ff);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .quote{font-style:italic}
+
+    /* Footer & utilities */
+    .footer{border-top:1px solid var(--line);color:#64748b}
+    .backtop{position:fixed;right:16px;bottom:16px;z-index:100;opacity:0;pointer-events:none;transform:translateY(8px);transition:all .2s}
+    .backtop.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+
+    /* Small circular profile photos */
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+      clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+    .photo-card{display:flex;align-items:center;justify-content:center}
+    .photo-frame{
+      width:var(--avatar); height:var(--avatar);
+      border-radius:9999px; overflow:hidden;
+      border:2px solid var(--line); background:#fff;
+      box-shadow:var(--shadow); margin-inline:auto;
+    }
+    .photo-frame img{
+      width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:1/1;
+    }
+    .photo-caption{display:none;}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main-content">Skip to content</a>
+
+  <!-- NAV -->
+  <header role="banner">
+    <div class="container nav">
+      <div class="brand"><span class="dot" aria-hidden="true"></span> Profile Perspectives </div>
+      <nav class="links" aria-label="Primary">
+        <a class="link" href="#home" data-nav>Home</a>
+        <a class="link" href="#andrea" data-nav>Andrea</a>
+        <a class="link" href="#saptak" data-nav>Saptak</a>
+        <a class="link" href="#about" data-nav>About</a>
+        <a class="link" href="#contact" data-nav>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HOME -->
+    <section id="home" class="hero" aria-labelledby="home-title">
+      <div class="container">
+        <span class="tag">Portfolio mini-site</span>
+        <h1 id="home-title">Two paths. One vision.</h1>
+        <p class="lead">
+          We design and plan for impact. This mini-site shows how our skills align with real roles:
+          <strong>Interactive Strategy</strong> and <strong>UX Design</strong>.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#andrea" aria-label="Go to Andrea’s profile">Meet Andrea — Interactive Strategy</a>
+          <a class="btn" href="#saptak" aria-label="Go to Saptak’s profile">Meet Saptak — UX Design</a>
+        </div>
+      </div>
+
+      <!-- Featured roles -->
+      <div class="container" aria-labelledby="roles-title" style="margin-top:28px">
+        <h2 id="roles-title">Featured roles</h2>
+        <p class="muted">Expanded cards with responsibilities, requirements, and fit. The first links to the live posting.</p>
+
+        <div class="grid Cols2" style="margin-top:16px">
+          <!-- ANDREA — Consultant, Strategy & Technology (Konrad) -->
+          <article class="card" aria-labelledby="role-andrea">
+            <div class="tag" aria-hidden="true">Andrea</div>
+            <h3 id="role-andrea" style="margin:10px 0 6px">Consultant, Strategy & Technology — Konrad</h3>
+            <p class="muted" style="margin-top:8px">
+              A next-generation digital consultancy role blending <strong>strategy, UX, and technology</strong>. Collaborate across Strategy,
+              Project Management, UX Design, and Technology to guide clients through the Design Thinking process and deliver
+              <em>human-centred</em>, cutting-edge user experiences.
+            </p>
+
+            <h4 style="margin:14px 0 6px">About the role</h4>
+            <p class="muted" style="margin-top:0">
+              You thrive at understanding complex problems, brainstorming with cross-functional teams, shaping impactful end-user
+              experiences, and supporting technical delivery and implementation.
+            </p>
+
+            <h4 style="margin:12px 0 6px">What you’ll do</h4>
+            <ul class="muted" style="margin:0 0 10px 18px">
+              <li>Support projects from rapid-to-market initiatives to large digital transformations.</li>
+              <li>Help lead/participate in design thinking workshops with clients.</li>
+              <li>Translate business challenges and goals into clear UX/technology solutions.</li>
+              <li>Research processes, success factors, and competitive landscape via interviews and desk research.</li>
+              <li>Contribute to project management, coordination, and polished documentation/presentations.</li>
+              <li>Act as a design/technology thought partner on emerging trends.</li>
+            </ul>
+
+            <h4 style="margin:10px 0 6px">Qualifications</h4>
+            <ul class="muted" style="margin:0 0 14px 18px">
+              <li>Minimum 2+ years relevant experience in strategy, design, and/or technology engagements.</li>
+              <li>Demonstrable passion for user experience, digital design, and technology.</li>
+              <li>Strong client collaboration and communication (written and verbal); comfortable presenting.</li>
+              <li>Analytical mindset, strong problem-solving, and self-motivation.</li>
+              <li>Ability to work both collaboratively and independently; appreciation for great digital design.</li>
+            </ul>
+
+            <div class="cta-row">
+              <a class="btn primary"
+                href="https://www.linkedin.com/jobs/view/4295014505/"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Open LinkedIn job posting for Consultant, Strategy & Technology at Konrad">
+                Learn more on LinkedIn →
+              </a>
+              <a class="btn" href="#andrea" aria-label="Go to Andrea’s profile to see alignment">See Andrea’s fit</a>
+            </div>
+          </article>
+
+          <!-- SAPTAK — UX Designer -->
+          <article class="card" aria-labelledby="role-saptak">
+            <div class="tag" aria-hidden="true">Saptak</div>
+            <h3 id="role-saptak" style="margin:10px 0 6px">UX Designer</h3>
+            <p class="muted" style="margin-top:8px">
+              Research-to-prototype role focused on <strong>flows, usability, and consistency</strong>. Balance user needs and business goals
+              while documenting rationale and iterating based on evidence.
+            </p>
+
+            <h4 style="margin:14px 0 6px">Focus areas</h4>
+            <ul class="muted" style="margin:0 0 10px 18px">
+              <li>User interviews, task flows, wireframes, and interactive prototypes.</li>
+              <li>Usability testing, insight synthesis, and data-informed iterations.</li>
+              <li>Design tokens, components, accessibility patterns, and clean hand-off to engineering.</li>
+            </ul>
+
+            <h4 style="margin:10px 0 6px">What they’re looking for</h4>
+            <ul class="muted" style="margin:0 0 14px 18px">
+              <li>Portfolio demonstrating problem-solving, process clarity, and results.</li>
+              <li>Working knowledge of Jakob’s & Hick’s Law to reduce cognitive load.</li>
+              <li>Strong collaboration with PM/Engineering; communicates trade-offs early.</li>
+            </ul>
+
+            <div class="cta-row">
+              <a class="btn primary"
+                href="#"
+                title="Add the LinkedIn URL here when available"
+                aria-label="LinkedIn job link coming soon">
+                Learn more on LinkedIn →
+              </a>
+              <span class="muted" aria-hidden="true" style="align-self:center">(link coming soon)</span>
+              <a class="btn" href="#saptak" aria-label="Go to Saptak’s profile to see alignment">See Saptak’s fit</a>
+            </div>
+          </article>
+        </div>
+      </div>
+      <!-- end Featured roles -->
+    </section>
+
+    <!-- ANDREA -->
+    <section id="andrea" aria-labelledby="andrea-title">
+      <div class="container">
+        <span class="tag">Interactive Strategist</span>
+        <h2 id="andrea-title">Andrea Hilarraza — Purposeful digital strategies</h2>
+        <p class="lead">I bridge creativity and data to strengthen brand presence and engagement. Focus: authentic storytelling, clear KPIs, consistent execution.</p>
+
+        <!-- PHOTO — ANDREA -->
+        <div class="card photo-card" style="margin: top 18px;px">
+          <figure class="photo-frame" aria-labelledby="andrea-photo-caption">
+            <img src="andrea-photo.jpg" alt="Portrait of Andrea Hilarraza" />
+            <figcaption id="andrea-photo-caption" class="sr-only">
+              Andrea — replace andrea-photo.jpg with your image.
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Row 1: About + Background Fit -->
+        <div class="grid Cols2" style="margin-top:18px">
+          <article class="card">
+            <h3>About me</h3>
+            <p class="muted">I am Andrea from Venezuela, with a background in Arts and Graphic Design. Specializing in branding, digital strategy, and audience engagement, mixing creativity with visual communication. Also, I'm focusing on technology and enjoy creating visual solutions that tell stories and connect with people. My main interests are content creation, photography, and storytelling.</p>
+          </article>
+          <article class="card">
+            <h3>How does my background fit?</h3>
+            <p class="muted">My background in Graphic Design has given me a foundation to approach projects from an analytical and creative perspective. I also hold a Certificate in Marketing. In addition, working with different teams has helped me understand the importance of organization, and especially collaboration, for delivering effective solutions and creating impactful experiences for users and value for clients.
+</p>
+            <ul class="muted" style="margin-left:18px">
+              <li>Analytical thinking</li>
+              <li>Creative problem solving</li>
+              <li>Collaboration</li>
+              <li>User-centered mindset</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Row 2: Experience + Why Hired -->
+        <div class="grid Cols2" style="margin-top:18px">
+          <article class="card">
+            <h3>Experience</h3>
+            <p class="muted">
+              Recently, at the restaurant <strong>Scotty Bons Caribbean Grill</strong>, I am the social media manager for Instagram Stories aligned with the brand’s Caribbean identity. I created all the visual content, graphics, and digital strategies. 
+              For the brand and engagement, the audience.
+              Previously in Venezuela, I worked at <strong>MOAD C.A.</strong> collaborating with the creative and marketing team to develop visual materials for branding and social media. 
+              This experience helped me to understand the industry design consistency, communication, and project coordination.  
+
+            </p>
+          </article>
+          <article class="card">
+            <h3>Why should I be hired?</h3>
+            <p class="muted">
+              I bring a strong sense of responsibility, consistency, and patience to every project. The main thing is to understand how I do for start and make it in a good way in collaboration. 
+              My approach focuses principally on clear communication, attention to detail, creative thinking, and problem solving, for the user experience and client objectives. 
+            </p>
+          </article>
+        </div>
+
+        <!-- Testimonial: Saptak on Andrea -->
+        <div class="testimonial" aria-label="Testimonial from Saptak about Andrea">
+          <div>
+            <strong>Saptak on Andrea</strong>
+            <p class="quote">“Andrea connects strategy with execution. She keeps teams aligned on goals, timelines, and the story we want to tell.”</p>
+          </div>
+        </div>
+
+        <!-- CONTACT — ANDREA -->
+        <div class="card" id="contact-andrea" style="margin-top:18px">
+          <h3>Contact — Andrea</h3>
+          <p class="muted">
+            LinkedIn: <a href="https://www.linkedin.com/in/andrea-hilarraza/" target="_blank" rel="noopener noreferrer" aria-label="Visit Andrea's LinkedIn"> Andrea Hilarraza </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAPTAK -->
+    <section id="saptak" aria-labelledby="saptak-title" style="background:var(--soft)">
+      <div class="container">
+        <span class="tag">UX Designer</span>
+        <h2 id="saptak-title">Saptak Mukhopadhyay — Intuitive experiences</h2>
+        <p class="lead">I create human-centered interfaces through research, prototyping, and usability testing — making technology feel natural.</p>
+
+        <!-- PHOTO — SAPTAK -->
+        <div class="card photo-card" style="margin-top:18px">
+          <figure class="photo-frame" aria-labelledby="saptak-photo-caption">
+            <img src="saptak-photo.jpg" alt="Portrait of Saptak Mukhopadhyay" />
+            <figcaption id="saptak-photo-caption" class="sr-only">
+              Saptak — replace saptak-photo.jpg with your image.
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Row 1: About + Background Fit -->
+        <div class="grid Cols2" style="margin-top:18px">
+          <article class="card">
+            <h3>About me</h3>
+            <p class="muted">Front-end-aware UX designer focused on flows, prototypes, and usability. I work closely with stakeholders to clarify goals and remove friction.</p>
+          </article>
+          <article class="card">
+            <h3>How does my background fit?</h3>
+            <ul class="muted" style="margin-left:18px">
+              <li>User research and flow simplification using Jakob’s & Hick’s Law.</li>
+              <li>Wireframes → clickable prototypes tested with users.</li>
+              <li>Foundations of design systems and accessibility patterns.</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Row 2: Experience + Why Hired -->
+        <div class="grid Cols2" style="margin-top:18px">
+          <article class="card">
+            <h3>Experience</h3>
+            <p class="muted">
+              Worked across <strong>research, prototyping, and usability testing</strong> to translate requirements into clear user flows and
+              interactive prototypes. Collaborated with PM and engineering to document decisions, iterate based on evidence, and hand off
+              designs with component specs and accessibility notes.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Why should I be hired?</h3>
+            <p class="muted">
+              Reliable and methodical, with a focus on clarity and measurable outcomes. Comfortably presents rationale, surfaces trade-offs early,
+              and iterates with user feedback. Aims to reduce cognitive load, improve task success, and align design choices with business goals.
+            </p>
+          </article>
+        </div>
+
+        <!-- Testimonial: Andrea on Saptak -->
+        <div class="testimonial" aria-label="Testimonial from Andrea about Saptak">
+          <div>
+            <strong>Andrea on Saptak</strong>
+            <p class="quote">“Saptak is reliable and methodical. He translates requirements into clean interfaces and communicates trade-offs early.”</p>
+          </div>
+        </div>
+
+        <!-- CONTACT — SAPTAK -->
+        <div class="card" id="contact-saptak" style="margin-top:18px">
+          <h3>Contact — Saptak</h3>
+          <p class="muted">
+            LinkedIn: <a href="https://www.linkedin.com/in/saptak-mukhopadhyay-90a08b219/" target="_blank" rel="noopener noreferrer" aria-label="Visit Saptak's LinkedIn"> Saptak Mukhopadhyay </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">About this project</h2>
+        <p class="muted">This site shows how transferable skills evolve into professional expertise. Andrea focuses on interactive strategy and communication; Saptak focuses on UX research, prototyping, and usability.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">General contact</h2>
+        <div class="grid Cols2" style="margin-top:10px">
+          <div class="card">
+            <h3>Andrea</h3>
+            <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/andrea-hilarraza/" target="_blank" rel="noopener noreferrer" aria-label="Visit Andrea's LinkedIn">Andrea Hilarraza</a></p>
+          </div>
+          <div class="card">
+            <h3>Saptak</h3>
+            <p class="muted">LinkedIn: <a href="#" aria-label="Visit Saptak's LinkedIn">Visit</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <section>
+      <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <p>© 2025 Design Paths — Andrea Hilarraza & Saptak Mukhopadhyay</p>
+        <p class="muted">Quick links: <a href="#andrea">Andrea</a> · <a href="#saptak">Saptak</a> · <a href="#home">Home</a></p>
+      </div>
+    </section>
+  </footer>
+
+  <!-- Back to top -->
+  <a href="#home" class="btn backtop" id="backtop" aria-label="Back to top">↑ Top</a>
+
+  <script>
+    // Accessible scrollspy: highlights current nav item
+    (function(){
+      const links = Array.from(document.querySelectorAll('[data-nav]'));
+      const ids = links.map(a => a.getAttribute('href')).filter(h => h.startsWith('#'));
+      const targets = ids.map(id => document.querySelector(id)).filter(Boolean);
+
+      const setActive = (id) => {
+        links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === id));
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
+        if(visible){ setActive('#'+visible.target.id); }
+      }, { rootMargin: '-40% 0px -55% 0px', threshold:[0, .2, .5, .75, 1] });
+
+      targets.forEach(t => observer.observe(t));
+
+      // Back-to-top visibility
+      const back = document.getElementById('backtop');
+      const toggleBack = () => {
+        if (window.scrollY > 600){ back.classList.add('visible'); }
+        else { back.classList.remove('visible'); }
+      };
+      toggleBack(); window.addEventListener('scroll', toggleBack);
+
+      // Keyboard-friendly focus on section headings after clicking nav links
+      links.forEach(a=>{
+        a.addEventListener('click', ()=>{
+          const href = a.getAttribute('href');
+          if(href.startsWith('#')){
+            const target = document.querySelector(href);
+            if(target){
+              if(!target.hasAttribute('tabindex')) target.setAttribute('tabindex','-1');
+              setTimeout(()=> target.focus({preventScroll:true}), 300);
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+
