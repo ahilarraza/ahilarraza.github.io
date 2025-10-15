@@ -14,7 +14,7 @@
       --radius:16px; --shadow:0 6px 18px rgba(15,23,42,.08); --max:1100px;
       --focus: 0 0 0 3px rgba(79,70,229,.35), 0 0 0 6px rgba(124,58,237,.25);
       /* Avatar size */
-      --avatar: 160px; /* bigger circle */
+      --avatar: 184px; /* larger square */ /* bigger circle */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -83,7 +83,7 @@
 
     /* Small circular profile photos */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .photo-frame{width:var(--avatar); height:var(--avatar); border-radius:9999px; overflow:hidden; border:2px solid var(--line); background:#fff; box-shadow:var(--shadow)}
+    .photo-frame{width:var(--avatar); height:var(--avatar); border-radius:12px; overflow:hidden; border:2px solid var(--line); background:#fff; box-shadow:var(--shadow)}
     .photo-frame img{width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:1/1}
 
     /* NEW: identity row puts avatar beside the name */
@@ -117,9 +117,9 @@
     <section id="home" class="hero" aria-labelledby="home-title">
       <div class="container">
         <span class="tag">Portfolio mini-site</span>
-        <h1 id="home-title">Profile Perspectives</h1>
+        <h1 id="home-title">Two paths. One vision.</h1>
         <p class="lead">
-        This mini-site shows how our skills align with real roles:
+          We design and plan for impact. This mini-site shows how our skills align with real roles:
           <strong>Interactive Strategy</strong> and <strong>UX Design</strong>.
         </p>
         <div class="cta-row">
@@ -296,7 +296,7 @@
         <!-- IDENTITY ROW: avatar beside the name -->
         <div class="identity" aria-labelledby="saptak-title">
           <figure class="photo-frame" aria-labelledby="saptak-photo-caption">
-            <img src="saptak-photo.png" alt="Portrait of Saptak Mukhopadhyay" />
+            <img src="saptak-photo.jpg" alt="Portrait of Saptak Mukhopadhyay" />
             <figcaption id="saptak-photo-caption" class="sr-only">Saptak — replace saptak-photo.jpg with your image.</figcaption>
           </figure>
           <div class="text">
@@ -368,7 +368,7 @@
           </div>
           <div class="card">
             <h3>Saptak</h3>
-            <p class="muted">LinkedIn: <a href="#" aria-label="Visit Saptak's LinkedIn">Saptak Mukhopadhyay</a></p>
+            <p class="muted">LinkedIn: <a href="#" aria-label="Visit Saptak's LinkedIn">Visit</a></p>
           </div>
         </div>
       </div>
