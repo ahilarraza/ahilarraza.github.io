@@ -14,7 +14,7 @@
       --radius:16px; --shadow:0 6px 18px rgba(15,23,42,.08); --max:1100px;
       --focus: 0 0 0 3px rgba(79,70,229,.35), 0 0 0 6px rgba(124,58,237,.25);
       /* Avatar size */
-      --avatar: 120px;
+      --avatar: 160px; /* bigger circle */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -82,21 +82,17 @@
     .backtop.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 
     /* Small circular profile photos */
-    .sr-only{
-      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
-      clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .photo-frame{width:var(--avatar); height:var(--avatar); border-radius:9999px; overflow:hidden; border:2px solid var(--line); background:#fff; box-shadow:var(--shadow)}
+    .photo-frame img{width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:1/1}
+
+    /* NEW: identity row puts avatar beside the name */
+    .identity{display:flex;align-items:center;gap:18px;margin-top:12px}
+    .identity .text{display:flex;flex-direction:column;gap:6px}
+    .identity h2{margin:0}
+    @media (max-width:640px){
+      .identity{flex-direction:row;align-items:center}
     }
-    .photo-card{display:flex;align-items:center;justify-content:center}
-    .photo-frame{
-      width:var(--avatar); height:var(--avatar);
-      border-radius:9999px; overflow:hidden;
-      border:2px solid var(--line); background:#fff;
-      box-shadow:var(--shadow); margin-inline:auto;
-    }
-    .photo-frame img{
-      width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:1/1;
-    }
-    .photo-caption{display:none;}
   </style>
 </head>
 <body>
@@ -227,17 +223,16 @@
     <section id="andrea" aria-labelledby="andrea-title">
       <div class="container">
         <span class="tag">Interactive Strategist</span>
-        <h2 id="andrea-title">Andrea Hilarraza — Purposeful digital strategies</h2>
-        <p class="lead">I bridge creativity and data to strengthen brand presence and engagement. Focus: authentic storytelling, clear KPIs, consistent execution.</p>
-
-        <!-- PHOTO — ANDREA -->
-        <div class="card photo-card" style="margin: top 18px;px">
+        <!-- IDENTITY ROW: avatar beside the name -->
+        <div class="identity" aria-labelledby="andrea-title">
           <figure class="photo-frame" aria-labelledby="andrea-photo-caption">
             <img src="andrea-photo.jpg" alt="Portrait of Andrea Hilarraza" />
-            <figcaption id="andrea-photo-caption" class="sr-only">
-              Andrea — replace andrea-photo.jpg with your image.
-            </figcaption>
+            <figcaption id="andrea-photo-caption" class="sr-only">Andrea — replace andrea-photo.jpg with your image.</figcaption>
           </figure>
+          <div class="text">
+            <h2 id="andrea-title">Andrea Hilarraza — Purposeful digital strategies</h2>
+            <p class="lead">I bridge creativity and data to strengthen brand presence and engagement. Focus: authentic storytelling, clear KPIs, consistent execution.</p>
+          </div>
         </div>
 
         <!-- Row 1: About + Background Fit -->
@@ -248,8 +243,7 @@
           </article>
           <article class="card">
             <h3>How does my background fit?</h3>
-            <p class="muted">My background in Graphic Design has given me a foundation to approach projects from an analytical and creative perspective. I also hold a Certificate in Marketing. In addition, working with different teams has helped me understand the importance of organization, and especially collaboration, for delivering effective solutions and creating impactful experiences for users and value for clients.
-</p>
+            <p class="muted">My background in Graphic Design has given me a foundation to approach projects from an analytical and creative perspective. I also hold a Certificate in Marketing. In addition, working with different teams has helped me understand the importance of organization, and especially collaboration, for delivering effective solutions and creating impactful experiences for users and value for clients.</p>
             <ul class="muted" style="margin-left:18px">
               <li>Analytical thinking</li>
               <li>Creative problem solving</li>
@@ -268,7 +262,6 @@
               For the brand and engagement, the audience.
               Previously in Venezuela, I worked at <strong>MOAD C.A.</strong> collaborating with the creative and marketing team to develop visual materials for branding and social media. 
               This experience helped me to understand the industry design consistency, communication, and project coordination.  
-
             </p>
           </article>
           <article class="card">
@@ -291,9 +284,7 @@
         <!-- CONTACT — ANDREA -->
         <div class="card" id="contact-andrea" style="margin-top:18px">
           <h3>Contact — Andrea</h3>
-          <p class="muted">
-            LinkedIn: <a href="https://www.linkedin.com/in/andrea-hilarraza/" target="_blank" rel="noopener noreferrer" aria-label="Visit Andrea's LinkedIn"> Andrea Hilarraza </a>
-          </p>
+          <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/andrea-hilarraza/" target="_blank" rel="noopener noreferrer" aria-label="Visit Andrea's LinkedIn"> Andrea Hilarraza </a></p>
         </div>
       </div>
     </section>
@@ -302,17 +293,16 @@
     <section id="saptak" aria-labelledby="saptak-title" style="background:var(--soft)">
       <div class="container">
         <span class="tag">UX Designer</span>
-        <h2 id="saptak-title">Saptak Mukhopadhyay — Intuitive experiences</h2>
-        <p class="lead">I create human-centered interfaces through research, prototyping, and usability testing — making technology feel natural.</p>
-
-        <!-- PHOTO — SAPTAK -->
-        <div class="card photo-card" style="margin-top:18px">
+        <!-- IDENTITY ROW: avatar beside the name -->
+        <div class="identity" aria-labelledby="saptak-title">
           <figure class="photo-frame" aria-labelledby="saptak-photo-caption">
             <img src="saptak-photo.jpg" alt="Portrait of Saptak Mukhopadhyay" />
-            <figcaption id="saptak-photo-caption" class="sr-only">
-              Saptak — replace saptak-photo.jpg with your image.
-            </figcaption>
+            <figcaption id="saptak-photo-caption" class="sr-only">Saptak — replace saptak-photo.jpg with your image.</figcaption>
           </figure>
+          <div class="text">
+            <h2 id="saptak-title">Saptak Mukhopadhyay — Intuitive experiences</h2>
+            <p class="lead">I create human-centered interfaces through research, prototyping, and usability testing — making technology feel natural.</p>
+          </div>
         </div>
 
         <!-- Row 1: About + Background Fit -->
@@ -335,18 +325,11 @@
         <div class="grid Cols2" style="margin-top:18px">
           <article class="card">
             <h3>Experience</h3>
-            <p class="muted">
-              Worked across <strong>research, prototyping, and usability testing</strong> to translate requirements into clear user flows and
-              interactive prototypes. Collaborated with PM and engineering to document decisions, iterate based on evidence, and hand off
-              designs with component specs and accessibility notes.
-            </p>
+            <p class="muted">Worked across <strong>research, prototyping, and usability testing</strong> to translate requirements into clear user flows and interactive prototypes. Collaborated with PM and engineering to document decisions, iterate based on evidence, and hand off designs with component specs and accessibility notes.</p>
           </article>
           <article class="card">
             <h3>Why should I be hired?</h3>
-            <p class="muted">
-              Reliable and methodical, with a focus on clarity and measurable outcomes. Comfortably presents rationale, surfaces trade-offs early,
-              and iterates with user feedback. Aims to reduce cognitive load, improve task success, and align design choices with business goals.
-            </p>
+            <p class="muted">Reliable and methodical, with a focus on clarity and measurable outcomes. Comfortably presents rationale, surfaces trade-offs early, and iterates with user feedback. Aims to reduce cognitive load, improve task success, and align design choices with business goals.</p>
           </article>
         </div>
 
@@ -361,9 +344,7 @@
         <!-- CONTACT — SAPTAK -->
         <div class="card" id="contact-saptak" style="margin-top:18px">
           <h3>Contact — Saptak</h3>
-          <p class="muted">
-            LinkedIn: <a href="https://www.linkedin.com/in/saptak-mukhopadhyay-90a08b219/" target="_blank" rel="noopener noreferrer" aria-label="Visit Saptak's LinkedIn"> Saptak Mukhopadhyay </a>
-          </p>
+          <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/saptak-mukhopadhyay-90a08b219/" target="_blank" rel="noopener noreferrer" aria-label="Visit Saptak's LinkedIn"> Saptak Mukhopadhyay </a></p>
         </div>
       </div>
     </section>
@@ -452,4 +433,3 @@
   </script>
 </body>
 </html>
-
