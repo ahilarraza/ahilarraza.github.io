@@ -110,6 +110,9 @@
       .identity{flex-direction:row;align-items:center}
     }
 
+    /* Utility to span across both columns */
+    .span2{grid-column:1 / -1}
+
     /* Decorative bottom texture (subtle & professional) */
     .texture-band{
       height: 220px;
@@ -294,23 +297,33 @@ Management • Media Reporting • Basics Web Design • Social Media & Branding
           </article>
         </div>
 
-        <!-- NEW: Education (Andrea) -->
-        <div class="card" style="margin-top:18px">
-          <h3>Education</h3>
-          <div class="muted">
-            <p><strong>Digital Marketer Certification</strong><br/>
-            Brainstation – Toronto, Ontario | Sept 2024 – Nov 2024<br/>
-            <em>Key Courses:</em> Developing expertise in media reporting, campaign execution, and budget management to enhance operational efficiency in media-driven environments.</p>
-
-            <p style="margin-top:12px;"><strong>Bachelor of Arts, Majoring in Graphic Design</strong><br/>
-            Universidad de Margarita – Nueva Esparta, Venezuela | Sept 2020 – Jul 2024<br/>
-            <em>Key Courses:</em> Developed a comprehensive brand identity and marketing campaign strategy, integrating data-driven insights and digital media trends.</p>
-          </div>
-        </div>
-
-        <!-- Row 2: Experience + Why Hired -->
+        <!-- Row 2: Education + Why Hired (side by side) -->
         <div class="grid Cols2" style="margin-top:18px">
           <article class="card">
+            <h3>Education</h3>
+            <div class="muted">
+              <p><strong>Digital Marketer Certification</strong><br/>
+              Brainstation – Toronto, Ontario | Sept 2024 – Nov 2024<br/>
+              <em>Key Courses:</em> Developing expertise in media reporting, campaign execution, and budget management to enhance operational efficiency in media-driven environments.</p>
+
+              <p style="margin-top:12px;"><strong>Bachelor of Arts, Majoring in Graphic Design</strong><br/>
+              Universidad de Margarita – Nueva Esparta, Venezuela | Sept 2020 – Jul 2024<br/>
+              <em>Key Courses:</em> Developed a comprehensive brand identity and marketing campaign strategy, integrating data-driven insights and digital media trends.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Why should I be hired?</h3>
+            <p class="muted">
+              I bring a strong sense of responsibility, consistency, and patience to every project. The main thing is to understand how I start and make it work in a good way in collaboration. 
+              My approach focuses principally on clear communication, attention to detail, creative thinking, and problem solving, for the user experience and client objectives. 
+            </p>
+          </article>
+        </div>
+
+        <!-- Row 3: Experience (full width) -->
+        <div class="grid Cols2" style="margin-top:18px">
+          <article class="card span2">
             <h3>Experience</h3>
             <div class="muted">
               <p><strong>Social Media Content Coordinator – Instagram Stories</strong><br/>
@@ -327,14 +340,6 @@ Management • Media Reporting • Basics Web Design • Social Media & Branding
                 <li>Designed branding materials, social media graphics, and marketing campaigns aligned with brand objectives.</li>
               </ul>
             </div>
-          </article>
-
-          <article class="card">
-            <h3>Why should I be hired?</h3>
-            <p class="muted">
-              I bring a strong sense of responsibility, consistency, and patience to every project. The main thing is to understand how I start and make it work in a good way in collaboration. 
-              My approach focuses principally on clear communication, attention to detail, creative thinking, and problem solving, for the user experience and client objectives. 
-            </p>
           </article>
         </div>
 
@@ -388,27 +393,54 @@ Management • Media Reporting • Basics Web Design • Social Media & Branding
           </article>
         </div>
 
-        <!-- NEW: Education (Saptak) -->
-        <div class="card" style="margin-top:18px">
-          <h3>Education</h3>
-          <div class="muted">
-            <!-- Rellena estos campos cuando tengas la info -->
-            <p><strong>Bachelor's degree in Graphic design and social media marketing</strong><br/>
-            Manipal Institute of Communication (MAHE), India | 2021 – 2024 <br/></p>
-          </div>
-        </div>
-
-        <!-- Row 2: Experience + Why Hired -->
+        <!-- Row 2: Education + Why Hired (side by side) -->
         <div class="grid Cols2" style="margin-top:18px">
           <article class="card">
-            <h3>Experience</h3>
-            <p class="muted">  </p>
+            <h3>Education</h3>
+            <div class="muted">
+              <p><strong>Bachelor's degree in Graphic design and social media marketing</strong><br/>
+              Manipal Institute of Communication (MAHE), India | 2021 – 2024 <br/></p>
+            </div>
           </article>
+
           <article class="card">
             <h3>Why should I be hired?</h3>
             <p class="muted">I bring a proven track record supported by sample works and survey design, which allows me to contribute effectively 
               to projects. Leadership, multitasking, and coordination skills enable me to manage responsibilities efficiently within a team. I am a highly motivated individual who is willing to contribute effectively 
               for the betterment of the organisation, and that adds value.</p>
+          </article>
+        </div>
+
+        <!-- Row 3: Experience (full width) -->
+        <div class="grid Cols2" style="margin-top:18px">
+          <article class="card span2">
+            <h3>Experience</h3>
+            <div class="muted">
+              <p><strong>Merchandiser</strong><br/>
+              The Brick — Canada | Aug 2024 – Current</p>
+              <ul style="margin-left:18px">
+                <li>Product handling: moving and lifting products, unloading trailers, organizing stock, assembling, and wrapping furniture.</li>
+                <li>Display management: attaching price tags and promotional materials, arranging home furnishings attractively, and creating innovative merchandising strategies.</li>
+              </ul>
+
+              <p style="margin-top:12px;"><strong>Social Media Marketer Intern</strong><br/>
+              Taps and Tunes Bar and Grill — Canada | Jan 2024 – Apr 2024</p>
+              <ul style="margin-left:18px">
+                <li>Managed social media handles, increasing followers by 73% and improving ranking on Google search.</li>
+                <li>Developed creative initiatives to increase customers and boosted engagement rate to over 20%.</li>
+                <li>Planned and executed ad campaigns using Google Ads with ongoing keyword research.</li>
+                <li>Produced video reels (memes y contenidos interactivos) para múltiples plataformas sociales.</li>
+              </ul>
+
+              <p style="margin-top:12px;"><strong>Social Media Coordinator</strong><br/>
+              Master-Pieced Inc — Kentucky, USA | Jan 2024 – Mar 2024</p>
+              <ul style="margin-left:18px">
+                <li>Managed official social pages to reach monthly goals; supported budget planning and brand awareness.</li>
+                <li>Optimized SEO and keywords to improve website visibility and traffic generation.</li>
+                <li>Developed and executed platform-specific content strategies to drive engagement and community growth.</li>
+                <li>Monitored and analyzed social media KPIs, providing insights to optimize results.</li>
+              </ul>
+            </div>
           </article>
         </div>
 
