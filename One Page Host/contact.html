@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About & Contact – VAYN Storyworks Concept</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">VAYN<span> for Innovate By Day</span></a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="contact.html" class="active">About & Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ABOUT SECTION -->
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">About this Storyworks project</h1>
+
+        <div class="two-col">
+          <article>
+            <h2>What is VAYN?</h2>
+            <p>
+              VAYN is a Storyworks concept created for the Interactive Media Management program. 
+              It imagines how Innovate By Day could use an AI-powered conversational avatar to welcome new clients 
+              and transform fragmented ideas into structured project briefs.
+            </p>
+            <p>
+              The project explores UX design, user research, AI-assisted communication, and storytelling as tools 
+              for improving first contact between agencies and clients.
+            </p>
+          </article>
+
+          <article>
+            <h2>Mission & Vision</h2>
+            <p>
+              <strong>Mission:</strong> Make first contact with a marketing agency feel human, clear, and efficient.
+            </p>
+            <p>
+              <strong>Vision:</strong> A future where AI empowers creative teams—not replacing them—by gathering 
+              context, organizing information, and improving client readiness before the first meeting.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TEAM SECTION -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Meet the Team Behind VAYN</h2>
+        <p class="section-intro">
+          Our multidisciplinary team combines UX design, research, and project management to deliver 
+          a strategic, human-centered solution for Innovate By Day.
+        </p>
+
+        <div class="team-row">
+
+          <!-- Jennifer -->
+          <div class="team-member">
+            <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=jennifer" alt="Jennifer Avatar">
+            <h3>Jennifer López</h3>
+            <p class="role">Project Manager</p>
+          </div>
+
+          <!-- Andrea -->
+          <div class="team-member">
+            <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=andrea" alt="Andrea Avatar">
+            <h3>Andrea Hilarraza</h3>
+            <p class="role">UX Designer</p>
+          </div>
+
+          <!-- Aurelie -->
+          <div class="team-member">
+            <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=aurelie" alt="Aurelie Avatar">
+            <h3>Aurélie Ducroux</h3>
+            <p class="role">UX Designer</p>
+          </div>
+
+          <!-- Donny -->
+          <div class="team-member">
+            <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=donny" alt="Donny Avatar">
+            <h3>Dominikus Donny Gunawan</h3>
+            <p class="role">User Researcher</p>
+          </div>
+
+          <!-- Christy -->
+          <div class="team-member">
+            <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=christy" alt="Christy Avatar">
+            <h3>Christy Varughese</h3>
+            <p class="role">User Researcher</p>
+          </div>
+
+        </div>
+
+        <p class="section-intro" style="margin-top: 2rem;">
+          The team collaborates weekly on campus and through virtual meetings. 
+          Communication with IBD is handled via Google Meet, Discord, and email to maintain a professional and efficient workflow.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- CONTACT FORM -->
+    <section class="section-alt">
+      <div class="container">
+        <h2 class="section-title">Contact / Feedback Form</h2>
+        <p class="section-intro">
+          This is a prototype form designed to simulate how clients might request a demo or share feedback 
+          regarding the VAYN experience.
+        </p>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-field">
+            <label for="name">Name<span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your name">
+            <p class="error-message" id="nameError"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email<span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+            <p class="error-message" id="emailError"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message<span class="required">*</span></label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us what you’d like to know or share."></textarea>
+            <p class="error-message" id="messageError"></p>
+          </div>
+
+          <button type="submit" class="btn primary">Send message</button>
+          <p id="formSuccess" class="success-message"></p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 VAYN – Storyworks concept for Innovate By Day.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

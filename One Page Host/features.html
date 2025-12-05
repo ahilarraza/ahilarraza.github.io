@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VAIN Features – Storyworks Concept</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">VAIN<span> for Innovate By Day</span></a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html" class="active">Features</a></li>
+          <li><a href="contact.html">About & Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Features overview -->
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">What VAIN can do</h1>
+        <p class="section-intro">
+          VAIN is designed as a Storyworks prototype to show how a conversational avatar can support 
+          Innovate By Day clients from the very first interaction.
+        </p>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h2>Guided Q&A flow</h2>
+            <p>
+              Pre-built question paths adapt to the type of project: campaign, content strategy, 
+              social media, or video production.
+            </p>
+          </article>
+          <article class="card">
+            <h2>Project brief generator</h2>
+            <p>
+              At the end of the conversation, VAIN summarizes key goals, audience, timelines, 
+              and budget range into a mini-brief.
+            </p>
+          </article>
+          <article class="card">
+            <h2>Service-aware answers</h2>
+            <p>
+              VAIN can answer basic questions about IBD’s process, timelines, and collaboration style, 
+              reducing friction for new leads.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mockups / Screens -->
+    <section class="section-alt">
+      <div class="container">
+        <h2 class="section-title">Screens & user journey (mockups)</h2>
+        <div class="mockups-grid">
+          <div class="mockup-box">
+            <h3>Website hero + “Talk to VAIN” button</h3>
+            <p>CTA on the homepage that launches the avatar in a chat window or side panel.</p>
+          </div>
+          <div class="mockup-box">
+            <h3>Conversation screen</h3>
+            <p>Alternating bubbles between the user and VAIN, including quick-reply buttons.</p>
+          </div>
+          <div class="mockup-box">
+            <h3>Brief summary screen</h3>
+            <p>Overview of project goals, audience, and next steps, ready to send to the IBD team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Quotes -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">What users could say (fictional quotes)</h2>
+        <div class="cards-grid">
+          <article class="card quote-card">
+            <p>“I booked a call with the agency because the avatar made the process feel clear and simple.”</p>
+            <p class="quote-meta">– Fictional SMB Owner, Retail</p>
+          </article>
+          <article class="card quote-card">
+            <p>“I felt like the avatar understood my goals and helped me organize my ideas.”</p>
+            <p class="quote-meta">– Fictional Marketing Lead, Tech Startup</p>
+          </article>
+          <article class="card quote-card">
+            <p>“Instead of guessing what to write in a form, I just answered questions and got a project outline.”</p>
+            <p class="quote-meta">– Fictional Founder, Nonprofit</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple calculator (extra JS interactivity) -->
+    <section class="section-alt">
+      <div class="container">
+        <h2 class="section-title">Estimate the time VAIN could save</h2>
+        <p class="section-intro">
+          Quick, fictional calculator to show how a conversational avatar might reduce manual intake time.
+        </p>
+
+        <form id="roiForm" class="form-grid">
+          <div class="form-field">
+            <label for="leadsPerWeek">Leads per week</label>
+            <input type="number" id="leadsPerWeek" min="1" placeholder="e.g. 10">
+          </div>
+          <div class="form-field">
+            <label for="minutesPerLead">Minutes per lead (current process)</label>
+            <input type="number" id="minutesPerLead" min="1" placeholder="e.g. 20">
+          </div>
+          <button type="button" id="roiButton" class="btn primary">Calculate</button>
+        </form>
+
+        <p id="roiResult" class="roi-result">
+          Enter your estimates to see potential hours saved per week.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 VAIN – Storyworks concept for Innovate By Day.</p>
+    </div>
+  </footer>
+</body>
+</html>
